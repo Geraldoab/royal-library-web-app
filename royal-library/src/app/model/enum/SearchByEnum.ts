@@ -1,6 +1,6 @@
 export enum SearchByEnum {
   All = "All",
-  BookTitle = "Title",
+  Title = "Title",
   Type = "Type",
   Category = "Category"
 }

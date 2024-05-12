@@ -1,19 +1,19 @@
 <mat-card>
   <div class="container">
-    <h1>Royal Books Library</h1>
+    <h1 class="container_title">Royal Books Library</h1>
     <br />
     <h4>Search by</h4>
     <div class="container_fields">
       <mat-form-field>
         <mat-label>Choose an option</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="filter.searchBy">
           <mat-option *ngFor="let enum of searchBy | keyvalue" value="{{enum.value}}">{{enum.key}}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field style="width: 100%;">
         <mat-label>Search value</mat-label>
-        <input matInput placeholder="Fiction" value="Fiction" maxlength="50">
+        <input matInput placeholder="Fiction" [(ngModel)]="filter.searchValue" maxlength="50">
       </mat-form-field>
     </div>
 
@@ -22,41 +22,58 @@
         <button mat-flat-button color="primary" (click)="search()" [disabled]="isLoading">Search</button>
       </div>
       <div class="container_buttons__spinner">
-        <mat-spinner [diameter]="36"></mat-spinner>
+        <mat-spinner *ngIf="isLoading" [diameter]="36"></mat-spinner>
       </div>
     </div>
 
     <div class="container_table">
       <table mat-table [dataSource]="dataSource">
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <!-- bookTitle Column -->
+        <ng-container matColumnDef="bookTitle">
+          <th mat-header-cell *matHeaderCellDef> Book Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookTitle}} </td>
         </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <!-- publisher Column -->
+        <ng-container matColumnDef="publisher">
+          <th mat-header-cell *matHeaderCellDef> Publisher </th>
+          <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
         </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <!-- authors Column -->
+        <ng-container matColumnDef="authors">
+          <th mat-header-cell *matHeaderCellDef> Authors </th>
+          <td mat-cell *matCellDef="let element"> {{element.authors}} </td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <!-- type Column -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+
+        <!-- isbn Column -->
+        <ng-container matColumnDef="isbn">
+          <th mat-header-cell *matHeaderCellDef> ISBN </th>
+          <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+        </ng-container>
+
+        <!-- category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+
+        <!-- availableCopies Column -->
+        <ng-container matColumnDef="availableCopies">
+          <th mat-header-cell *matHeaderCellDef> Available Copies </th>
+          <td mat-cell *matCellDef="let element"> {{element.availableCopies}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-
 
       <mat-paginator
           #paginator

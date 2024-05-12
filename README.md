@@ -10,7 +10,7 @@ You can also try the **.NET Web API** -> https://github.com/Geraldoab/net-coderb
 - :white_check_mark: CSS
 - :white_check_mark: Docker Image https://hub.docker.com/repository/docker/geraldoab/royal-library-web-app/general
 
-## GET STARTED
+## Get Started
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 

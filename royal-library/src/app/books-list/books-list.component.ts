@@ -55,7 +55,7 @@ export class BooksListComponent implements AfterViewInit {
   isLoading: Boolean = false
 
   filter: BookFilter = {
-    searchBy:'',
+    searchBy: this.searchBy.All,
     searchValue: ''
   }
 

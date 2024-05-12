@@ -1,0 +1,19 @@
+.container {
+  padding: 16px;
+  min-width: 700px;
+}
+
+.container_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 12px;
+}
+
+.container_fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 1rem;
+}

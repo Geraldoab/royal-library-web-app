@@ -1,0 +1,69 @@
+<mat-card>
+  <div class="container">
+    <h1>Royal Books Library</h1>
+    <br />
+    <h4>Search by</h4>
+    <div class="container_fields">
+      <mat-form-field>
+        <mat-label>Choose an option</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let enum of searchBy | keyvalue" value="{{enum.value}}">{{enum.key}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Search value</mat-label>
+        <input matInput placeholder="Fiction" value="Fiction" maxlength="50">
+      </mat-form-field>
+    </div>
+
+    <div class="container_buttons">
+      <div class="container_buttons__button">
+        <button mat-flat-button color="primary" (click)="search()" [disabled]="isLoading">Search</button>
+      </div>
+      <div class="container_buttons__spinner">
+        <mat-spinner [diameter]="36"></mat-spinner>
+      </div>
+    </div>
+
+    <div class="container_table">
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+      <mat-paginator
+          #paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </div>
+</mat-card>

@@ -1,6 +1,12 @@
 .container {
-  padding: 16px;
+  padding: 32px;
   min-width: 700px;
+}
+
+.container_title {
+  width: max-content;
+  margin: auto;
+  text-align: center;
 }
 
 .container_buttons {

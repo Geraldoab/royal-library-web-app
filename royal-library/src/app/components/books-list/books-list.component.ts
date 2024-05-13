@@ -1,5 +1,5 @@
-import { BookDataTransferObject } from './../model/book-data-transfer-object';
-import { SearchByEnum } from './../model/enum/SearchByEnum';
+import { BookDataTransferObject } from '../../model/book-data-transfer-object';
+import { SearchByEnum } from '../../model/enum/SearchByEnum';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -11,8 +11,9 @@ import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { BookService } from '../services/book/book.service';
-import { BookFilter } from '../model/book-filter';
+import { BookService } from '../../services/book/book.service';
+import { BookFilter } from '../../model/book-filter';
+import { RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-books-list',
@@ -28,7 +29,9 @@ import { BookFilter } from '../model/book-filter';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    RouterOutlet,
+    RouterModule
   ],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.css'

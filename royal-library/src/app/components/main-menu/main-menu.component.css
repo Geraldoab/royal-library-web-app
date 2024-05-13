@@ -1,0 +1,15 @@
+.container_menu {
+  padding: 24px;
+}
+
+.container_menu .items {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.container_title {
+  width: max-content;
+  margin: auto;
+  text-align: center;
+}

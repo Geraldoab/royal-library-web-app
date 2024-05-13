@@ -52,10 +52,12 @@
     color: var(--gray-700);
   }
 
-  main {
+  .main {
     width: 100%;
     min-height: 100%;
     display: flex;
+    gap: 12px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
@@ -66,6 +68,7 @@
 </style>
 
 <main class="main">
-  <app-books-list></app-books-list>
+  <app-main-menu></app-main-menu>
+  <!--<app-books-list></app-books-list>-->
+  <router-outlet></router-outlet>
 </main>
-<router-outlet />

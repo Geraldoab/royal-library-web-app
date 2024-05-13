@@ -1,0 +1,35 @@
+<div class="container">
+
+  <mat-card class="container_menu">
+    <h1 class="container_title">Royal Library</h1>
+    <br />
+    <div class="items">
+      <div>
+        <!-- Books menu -->
+        <button mat-button [matMenuTriggerFor]="booksMenu">Books</button>
+        <mat-menu #booksMenu="matMenu" yPosition="below">
+          <button mat-menu-item>Create</button>
+          <button mat-menu-item>List</button>
+        </mat-menu>
+      </div>
+
+      <div>
+        <!-- Authors menu -->
+        <button mat-button [matMenuTriggerFor]="authorsMenu">Authors</button>
+        <mat-menu #authorsMenu="matMenu" yPosition="below">
+          <button mat-menu-item>Create</button>
+          <button mat-menu-item>List</button>
+        </mat-menu>
+      </div>
+
+      <div>
+        <!-- Publishers menu -->
+        <button mat-button [matMenuTriggerFor]="publishersMenu">Publishers</button>
+        <mat-menu #publishersMenu="matMenu" yPosition="below">
+          <button mat-menu-item>Create</button>
+          <button mat-menu-item>List</button>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-card>
+</div>

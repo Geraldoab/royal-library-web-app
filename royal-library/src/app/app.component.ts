@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import { BooksListComponent } from './components/books-list/books-list.component';
+import { BooksListComponent } from './components/book/books-list/books-list.component';
 
 @Component({
   selector: 'app-root',

@@ -8,8 +8,8 @@
         <!-- Books menu -->
         <button mat-button [matMenuTriggerFor]="booksMenu">Books</button>
         <mat-menu #booksMenu="matMenu" yPosition="below">
-          <button mat-menu-item>Create</button>
-          <button mat-menu-item>List</button>
+          <button mat-menu-item routerLink="/books">Create</button>
+          <button mat-menu-item routerLink="/books/search">List</button>
         </mat-menu>
       </div>
 
@@ -17,8 +17,8 @@
         <!-- Authors menu -->
         <button mat-button [matMenuTriggerFor]="authorsMenu">Authors</button>
         <mat-menu #authorsMenu="matMenu" yPosition="below">
-          <button mat-menu-item>Create</button>
-          <button mat-menu-item>List</button>
+          <button mat-menu-item routerLink="/authors">Create</button>
+          <button mat-menu-item routerLink="/authors/search">List</button>
         </mat-menu>
       </div>
 
@@ -26,8 +26,8 @@
         <!-- Publishers menu -->
         <button mat-button [matMenuTriggerFor]="publishersMenu">Publishers</button>
         <mat-menu #publishersMenu="matMenu" yPosition="below">
-          <button mat-menu-item>Create</button>
-          <button mat-menu-item>List</button>
+          <button mat-menu-item routerLink="/publishers">Create</button>
+          <button mat-menu-item routerLink="/publishers/search">List</button>
         </mat-menu>
       </div>
     </div>

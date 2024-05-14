@@ -1,0 +1,6 @@
+<mat-form-field>
+  <mat-label>Choose a Type</mat-label>
+  <mat-select [(ngModel)]="selectedBookType" (selectionChange)="onChange()">
+    <mat-option *ngFor="let type of types" value="{{type.name}}">{{type.name}}</mat-option>
+  </mat-select>
+</mat-form-field>

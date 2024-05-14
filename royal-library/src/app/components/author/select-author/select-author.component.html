@@ -1,1 +1,7 @@
-<p style="color: white;">select-author works!</p>
+<mat-form-field>
+  <mat-label>Choose an Author</mat-label>
+  <mat-select [(ngModel)]="selectedAuthorId" (selectionChange)="onChange()">
+    <mat-option *ngFor="let author of authors" value="{{author.id}}">{{author.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+

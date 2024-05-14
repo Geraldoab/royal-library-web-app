@@ -9,22 +9,34 @@
         <!-- Title -->
         <mat-form-field>
           <mat-label>Title</mat-label>
-          <input matInput placeholder="My new book" [(ngModel)]="book.title" maxlength="100">
+          <input matInput placeholder="My new book" maxlength="100" [formControl]="titleFormControl" (blur)="updateTitleErrorMessage()" required>
+          @if (titleFormControl.invalid) {
+            <mat-error>{{errorMessage}}</mat-error>
+          }
         </mat-form-field>
         <!-- First Name -->
         <mat-form-field>
           <mat-label>First Name</mat-label>
-          <input matInput placeholder="Geraldo" [(ngModel)]="book.firstName" maxlength="50">
+          <input matInput placeholder="Geraldo"  [formControl]="firstNameFormControl" (blur)="updateFirstNameErrorMessage()" required maxlength="50">
+          @if (firstNameFormControl.invalid) {
+            <mat-error>{{errorMessage}}</mat-error>
+          }
         </mat-form-field>
         <!-- Last Name -->
         <mat-form-field>
           <mat-label>Last name</mat-label>
-          <input matInput placeholder="Borges" [(ngModel)]="book.lastName" maxlength="50">
+          <input matInput placeholder="Borges"  [formControl]="lastNameFormControl" (blur)="updateLastNameErrorMessage()" required- maxlength="50">
+          @if (lastNameFormControl.invalid) {
+            <mat-error>{{errorMessage}}</mat-error>
+          }
         </mat-form-field>
         <!-- ISBN -->
         <mat-form-field>
           <mat-label>ISBN</mat-label>
-          <input matInput placeholder="" [(ngModel)]="book.ISBN" maxlength="80">
+          <input matInput placeholder=""  [formControl]="ISBNFormControl" (blur)="updateISBNErrorMessage()" required maxlength="80">
+          @if (ISBNFormControl.invalid) {
+            <mat-error>{{errorMessage}}</mat-error>
+          }
         </mat-form-field>
         <!-- Total copies -->
         <mat-form-field>

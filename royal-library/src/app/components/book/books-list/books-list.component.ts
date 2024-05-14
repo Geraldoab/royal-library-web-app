@@ -67,7 +67,7 @@ export class BooksListComponent implements AfterViewInit {
     this.isLoading = true
 
     setTimeout(() => {
-      this.bookService.getBooks(this.filter).subscribe((books) => {
+      this.bookService.getAll(this.filter).subscribe((books) => {
         this.dataSource = new MatTableDataSource<BookDataTransferObject>(books)
         this.dataSource.paginator = this.paginator;
         this.isLoading = false

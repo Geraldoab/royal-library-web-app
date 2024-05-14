@@ -1,1 +1,6 @@
-<p style="color: white;">select-publisher works!</p>
+<mat-form-field>
+  <mat-label>Choose a Publisher</mat-label>
+  <mat-select [(ngModel)]="selectedPublisherId" (selectionChange)="onChange()">
+    <mat-option *ngFor="let publisher of publishers" value="{{publisher.id}}">{{publisher.name}}</mat-option>
+  </mat-select>
+</mat-form-field>

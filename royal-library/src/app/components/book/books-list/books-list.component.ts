@@ -52,6 +52,7 @@ export class BooksListComponent implements AfterViewInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<BookDataTransferObject>(this.booksList)
+    this.search()
   }
 
   searchBy = SearchByEnum

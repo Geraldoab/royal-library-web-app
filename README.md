@@ -34,5 +34,9 @@ Download **Docker Desktop**: https://www.docker.com/products/docker-desktop/
 ![r-library2](https://github.com/Geraldoab/royal-library-web-app/assets/3846304/cd9b0d51-c7ce-48a2-9b10-bb1d7d046d1c)
 
 # Sample
-![r-library1](https://github.com/Geraldoab/royal-library-web-app/assets/3846304/a26d9b02-d694-46a6-b468-3a65d0ec4d3a)
+![image](https://github.com/Geraldoab/royal-library-web-app/assets/3846304/1e28cc67-a4c7-41ac-94ae-36ce0e71b2af)
+
+![image](https://github.com/Geraldoab/royal-library-web-app/assets/3846304/aac55c9c-e579-44ba-862b-74629f2edb6a)
+
+
 

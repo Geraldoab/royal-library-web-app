@@ -8,6 +8,7 @@ import { ListAuthorComponent } from './components/author/list-author/list-author
 import { ListPublisherComponent } from './components/publisher/list-publisher/list-publisher.component';
 import { Component } from '@angular/core';
 import { CreatePublisherComponent } from './components/publisher/create-publisher/create-publisher.component';
+import { EditBookComponent } from './components/book/edit-book/edit-book.component';
 
 export const routes: Routes = [
   {
@@ -24,7 +25,7 @@ export const routes: Routes = [
   },
   {
     path: 'books/:id',
-    component: CreateBookComponent
+    component: EditBookComponent
   },
   {
     path: 'authors',

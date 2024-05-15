@@ -23,3 +23,12 @@
   gap: 12px;
   margin-bottom: 1rem;
 }
+
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+  font-weight: bold;
+}

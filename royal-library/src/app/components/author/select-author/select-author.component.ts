@@ -4,6 +4,7 @@ import { Author } from '../../../model/author';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthorService } from '../../../services/author/author.service';
 
 @Component({
   selector: 'app-select-author',
@@ -14,19 +15,13 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 
 export class SelectAuthorComponent implements OnInit {
+
+  constructor(private authorService: AuthorService) {}
+
   authors: Author[]
 
   ngOnInit(): void {
-    this.authors = [
-      {
-        id: 1,
-        name: 'Author 1'
-      },
-      {
-        id: 2,
-        name: 'Author 2'
-      },
-    ]
+    this.getAllAuthors()
   }
 
   @Input()
@@ -36,5 +31,11 @@ export class SelectAuthorComponent implements OnInit {
 
   onChange() {
     this.newSelectedAuthorIdEvent.emit(this.selectedAuthorId)
+  }
+
+  getAllAuthors() {
+    this.authorService.getAll().subscribe((authorsResponse) => {
+      this.authors = authorsResponse
+    })
   }
 }

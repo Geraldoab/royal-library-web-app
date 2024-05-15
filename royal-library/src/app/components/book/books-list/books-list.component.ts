@@ -14,6 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { BookService } from '../../../services/book/book.service';
 import { BookFilter } from '../../../model/book-filter';
 import { RouterOutlet, RouterModule } from '@angular/router';
+import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-books-list',
@@ -31,7 +33,9 @@ import { RouterOutlet, RouterModule } from '@angular/router';
     MatTableModule,
     MatCardModule,
     RouterOutlet,
-    RouterModule
+    RouterModule,
+    MatSort,
+    MatSortModule
   ],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.css'
@@ -42,12 +46,24 @@ export class BooksListComponent implements AfterViewInit {
   dataSource: MatTableDataSource<BookDataTransferObject>
   booksList: BookDataTransferObject[] = []
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService,
+    private _liveAnnouncer: LiveAnnouncer
+  ) {}
 
   @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
   ngOnInit(): void {
@@ -70,6 +86,7 @@ export class BooksListComponent implements AfterViewInit {
       this.bookService.getAll(this.filter).subscribe((books) => {
         this.dataSource = new MatTableDataSource<BookDataTransferObject>(books)
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         this.isLoading = false
       })
     }, 1250)

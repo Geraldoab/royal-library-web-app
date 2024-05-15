@@ -27,29 +27,29 @@
     </div>
 
     <div class="container_table">
-      <table mat-table [dataSource]="dataSource">
+      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
 
         <!-- bookTitle Column -->
         <ng-container matColumnDef="bookTitle">
-          <th mat-header-cell *matHeaderCellDef> Book Title </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Book Title </th>
           <td mat-cell *matCellDef="let element"> {{element.bookTitle}} </td>
         </ng-container>
 
         <!-- publisher Column -->
         <ng-container matColumnDef="publisher">
-          <th mat-header-cell *matHeaderCellDef> Publisher </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Publisher </th>
           <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
         </ng-container>
 
         <!-- authors Column -->
         <ng-container matColumnDef="authors">
-          <th mat-header-cell *matHeaderCellDef> Authors </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Authors </th>
           <td mat-cell *matCellDef="let element"> {{element.authors}} </td>
         </ng-container>
 
         <!-- type Column -->
         <ng-container matColumnDef="type">
-          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
           <td mat-cell *matCellDef="let element"> {{element.type}} </td>
         </ng-container>
 
@@ -61,7 +61,7 @@
 
         <!-- category Column -->
         <ng-container matColumnDef="category">
-          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
           <td mat-cell *matCellDef="let element"> {{element.category}} </td>
         </ng-container>
 

@@ -1,0 +1,17 @@
+.container-author {
+  width: 640px;
+}
+.container-author__card {
+  padding: 24px;
+  width: 100%;
+}
+.container-author__card__buttons {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+.container-author__card_content {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}

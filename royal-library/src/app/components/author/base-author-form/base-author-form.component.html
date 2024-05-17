@@ -1,0 +1,23 @@
+<div class="container-author">
+  <<mat-card>
+      <mat-card-header>
+          <mat-card-title>Author</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="container-author__card_content">
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input matInput placeholder="Geraldo Borges"  [formControl]="nameFormControl" (blur)="updateNameErrorMessage()" required maxlength="100">
+          @if (nameFormControl.invalid) {
+            <mat-error>{{errorMessage}}</mat-error>
+          }
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="start" class="container-author__card__buttons">
+        <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="isDisabled">Submit</button>
+        <button mat-button routerLink="/authors/search">Cancel</button>
+      </mat-card-actions>
+      <mat-card-footer>
+      </mat-card-footer>
+  </mat-card>
+</div>

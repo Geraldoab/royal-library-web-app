@@ -24,15 +24,23 @@ export class SelectBookBottomSheetComponent {
 
   selectedBook: BookDataTransferObject
   bookAction: ActionEnum
+  isDisabled: Boolean = false
 
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: BookDataTransferObject,
     private sharedActionService: SharedActionService
   ) {
     this.selectedBook = data
+
+    sharedActionService.onButtonDisableEvent.subscribe(isDisabled => {
+      this.isDisabled = isDisabled
+    })
   }
 
   onSelectAction(action: ActionEnum) {
     this.sharedActionService.emitValue(action)
+    if(action == ActionEnum.Delete) {
+      this.isDisabled = true
+    }
   }
 }

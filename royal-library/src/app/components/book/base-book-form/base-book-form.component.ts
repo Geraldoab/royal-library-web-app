@@ -83,7 +83,7 @@ export class BaseFormBookComponent {
   ) {
     this._sharedFormService.onClearForm.subscribe((shouldClear)=> {
       if(shouldClear) {
-        this.cleanForm()
+        this.clearForm()
       }
     })
 
@@ -176,7 +176,7 @@ export class BaseFormBookComponent {
     this.newBookEvent.emit(this.book);
   }
 
-  private cleanForm() {
+  private clearForm() {
     this.titleFormControl.reset()
     this.ISBNFormControl.reset();
     this.firstNameFormControl.reset();

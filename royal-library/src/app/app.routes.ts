@@ -9,6 +9,7 @@ import { ListPublisherComponent } from './components/publisher/list-publisher/li
 import { Component } from '@angular/core';
 import { CreatePublisherComponent } from './components/publisher/create-publisher/create-publisher.component';
 import { EditBookComponent } from './components/book/edit-book/edit-book.component';
+import { EditAuthorComponent } from './components/author/edit-author/edit-author.component';
 
 export const routes: Routes = [
   {
@@ -28,21 +29,26 @@ export const routes: Routes = [
     component: EditBookComponent
   },
   {
-    path: 'authors',
-    component: CreateAuthorComponent
-  },
-  {
     path: 'authors/search',
     component: ListAuthorComponent
   },
   {
-    path: 'publishers',
-    component: CreatePublisherComponent
+    path: 'authors',
+    component: CreateAuthorComponent
+  },
+  {
+    path: 'authors/:id',
+    component: EditAuthorComponent
   },
   {
     path: 'publishers/search',
     component: ListPublisherComponent
   },
+  {
+    path: 'publishers',
+    component: CreatePublisherComponent
+  },
+
   /*{
     path: 'authors',
     loadChildren: () => import('./custom-routes/author.routes').then(mod=> mod.AUTHOR_ROUTES)

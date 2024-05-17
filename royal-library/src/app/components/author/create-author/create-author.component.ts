@@ -5,6 +5,8 @@ import { SharedActionService } from '../../../services/shared-action.service';
 import { SharedFormService } from '../../../services/shared-form.service';
 import { AuthorService } from '../../../services/author/author.service';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { BaseComponentComponent } from '../../core/base-component/base.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-author',
@@ -15,7 +17,7 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
   templateUrl: './create-author.component.html',
   styleUrl: './create-author.component.css'
 })
-export class CreateAuthorComponent {
+export class CreateAuthorComponent extends BaseComponentComponent {
   author: Author = {
     id: 0,
     name: ''
@@ -25,11 +27,13 @@ export class CreateAuthorComponent {
   addBookErrorMessage = "Unfortunately, can't add the new author";
 
   constructor(
-    private _snackBar: MatSnackBar,
+    protected override router: Router,
+    protected override snackBar: MatSnackBar,
     private _sharedActionService: SharedActionService,
     private _sharedFormService: SharedFormService,
     private _authorService: AuthorService
   ) {
+    super(router, snackBar);
     this._sharedFormService.onFormValidation.subscribe(isFormValid => {
       this.isFormValid = isFormValid
     })
@@ -65,12 +69,5 @@ export class CreateAuthorComponent {
           this._sharedActionService.emitButtonDisableEvent(false);
         }
       })
-  }
-
-  private showSnackBar(message: string, position: MatSnackBarVerticalPosition = 'bottom') {
-    this._snackBar.open(message, null, {
-      duration: 3000,
-      verticalPosition: position
-    });
   }
 }

@@ -20,21 +20,21 @@ export class BookService {
   }
 
   create(book: Book) : Observable<HttpResponse<any>> {
-    return this.http.post<HttpResponse<any>>(this.BOOKS_URL, book, {observe: 'response'})
+    return this.http.post<HttpResponse<any>>(this.BOOKS_URL, book, { observe: 'response' })
   }
 
   edit(book: Book) : Observable<HttpResponse<any>> {
     const url = `${this.BOOKS_URL}/${book.id}`
-    return this.http.put<HttpResponse<any>>(url, book, {observe: 'response'})
+    return this.http.put<HttpResponse<any>>(url, book, { observe: 'response' })
   }
 
   delete(id: number) : Observable<HttpResponse<any>> {
     const url = `${this.BOOKS_URL}/${id}`
-    return this.http.delete<HttpResponse<any>>(url, {observe: 'response'})
+    return this.http.delete<HttpResponse<any>>(url, { observe: 'response' })
   }
 
   getById(id: number) : Observable<HttpResponse<any>> {
     const url = `${this.BOOKS_URL}/${id}`
-    return this.http.get<HttpResponse<any>>(url, {observe: 'response'})
+    return this.http.get<HttpResponse<any>>(url, { observe: 'response' })
   }
 }

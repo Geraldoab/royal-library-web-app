@@ -119,9 +119,13 @@ export class BooksListComponent implements AfterViewInit {
     }, 1250)
   }
 
-  private deleteBookErrorMessage = "Unfortunately, can't add the book."
+  private deleteBookErrorMessage = "Unfortunately, can't delete the book."
 
   delete(bookId: number) {
+    if(this.isLoading) {
+      return
+    }
+
     this.isLoading = true
 
     setTimeout(() => {
@@ -130,6 +134,8 @@ export class BooksListComponent implements AfterViewInit {
         {
           if(response.status == 200) {
             this.showSnackBar('The book was deleted successfully.', 'top')
+            this.filter.searchBy = SearchByEnum.All
+            this.filter.searchValue = '*'
             this.search()
           }
           else {
@@ -143,7 +149,6 @@ export class BooksListComponent implements AfterViewInit {
           this.isLoading = false;
         }
       });
-
     }, 1250)
   }
 

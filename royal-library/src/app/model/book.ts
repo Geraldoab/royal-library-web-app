@@ -4,7 +4,7 @@ export interface Book {
   firstName: string,
   lastName: string,
   type: string,
-  ISBN: string,
+  isbn: string,
   category: string,
   totalCopies: number,
   authorId: number,

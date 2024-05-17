@@ -22,6 +22,18 @@ export class SelectBookCategoryComponent {
     {
       id: 2,
       name: 'Non-Fiction'
+    },
+    {
+      id: 3,
+      name: 'Mystery'
+    },
+    {
+      id: 4,
+      name: 'Biography'
+    },
+    {
+      id: 5,
+      name: 'Sci-Fi'
     }
   ]
 

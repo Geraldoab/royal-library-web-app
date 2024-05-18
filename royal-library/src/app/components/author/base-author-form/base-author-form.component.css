@@ -15,3 +15,8 @@
   gap: 6px;
   flex-direction: column;
 }
+.container-author__card__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}

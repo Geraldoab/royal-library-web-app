@@ -23,16 +23,16 @@ export class AuthorService {
 
   edit(author: Author) : Observable<any> {
     const url = `${this.AUTHORS_URL}/${author.id}`
-    return this.http.put<any>(url, author)
+    return this.http.put<any>(url, author, {observe: 'response'})
   }
 
   delete(id: number) : Observable<any> {
     const url = `${this.AUTHORS_URL}/${id}`
-    return this.http.delete<any>(url)
+    return this.http.delete<any>(url, {observe: 'response'})
   }
 
   getById(id: number) : Observable<any> {
     const url = `${this.AUTHORS_URL}/${id}`
-    return this.http.get<any>(url)
+    return this.http.get<any>(url, {observe: 'response'})
   }
 }

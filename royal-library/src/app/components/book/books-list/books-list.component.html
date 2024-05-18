@@ -18,11 +18,11 @@
     </div>
 
     <div class="container_buttons">
-      <div class="container_buttons__button">
-        <button mat-flat-button color="primary" (click)="search()" [disabled]="isLoading">Search</button>
-      </div>
       <div class="container_buttons__spinner">
         <mat-spinner *ngIf="isLoading" [diameter]="36"></mat-spinner>
+      </div>
+      <div class="container_buttons__button">
+        <button mat-flat-button color="primary" (click)="search()" [disabled]="isLoading">Search</button>
       </div>
     </div>
 

@@ -1,0 +1,24 @@
+.container {
+  padding: 32px;
+  min-width: 700px;
+}
+
+.container_title {
+  width: max-content;
+  margin: auto;
+  text-align: center;
+}
+
+.container_spinner {
+  width: max-content;
+  margin: auto;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+  font-weight: bold;
+}

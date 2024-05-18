@@ -12,8 +12,9 @@
 .container_buttons {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: end;
   gap: 12px;
+  margin-bottom: 12px;
 }
 
 .container_fields {

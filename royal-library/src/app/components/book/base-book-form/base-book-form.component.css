@@ -9,6 +9,7 @@
   display: flex;
   gap: 12px;
   flex-direction: row;
+  justify-content: end;
 }
 .container-book__card_content {
   display: flex;

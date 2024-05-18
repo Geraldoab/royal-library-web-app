@@ -4,7 +4,7 @@ import { Author } from '../../../model/author';
 import { SharedActionService } from '../../../services/shared-action.service';
 import { SharedFormService } from '../../../services/shared-form.service';
 import { AuthorService } from '../../../services/author/author.service';
-import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BaseComponentComponent } from '../../core/base-component/base.component';
 import { Router } from '@angular/router';
 
@@ -51,23 +51,24 @@ export class CreateAuthorComponent extends BaseComponentComponent {
 
     this._sharedActionService.emitButtonDisableEvent(true);
 
-    this._authorService.create(selectedAuthor)
-      .subscribe({
-        next: (response) => {
-          if(response.status == 200) {
-            this.showSnackBar('The author was added successfully.', 'top')
-            this._sharedFormService.emitOnClearForm(true)
-          }
-          else {
-            this.showSnackBar(this.addBookErrorMessage, 'bottom')
-          }
-        },
-        error: (e) => {
-          this.showSnackBar(e.error, 'bottom')
-        },
-        complete: () => {
-          this._sharedActionService.emitButtonDisableEvent(false);
+    this._authorService
+    .create(selectedAuthor)
+    .subscribe({
+      next: (response) => {
+        if(response.status == 200) {
+          this.showSnackBar('The author was added successfully.', 'top')
+          this._sharedFormService.emitOnClearForm(true)
         }
-      })
+        else {
+          this.showSnackBar(this.addBookErrorMessage, 'bottom')
+        }
+      },
+      error: (e) => {
+        this.showSnackBar(e.error, 'bottom')
+      },
+      complete: () => {
+        this._sharedActionService.emitButtonDisableEvent(false);
+      }
+    })
   }
 }

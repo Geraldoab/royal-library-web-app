@@ -66,6 +66,7 @@ export class BaseAuthorFormComponent {
     private _sharedFormService: SharedFormService,
     private _sharedActionService: SharedActionService
   ){
+
     this._sharedFormService.onClearForm.subscribe((shouldClear)=> {
       if(shouldClear) {
         this.clearForm()
@@ -88,6 +89,10 @@ export class BaseAuthorFormComponent {
     else {
       this.errorMessage = '';
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.nameFormControl.setValue(this.author.name);
   }
 
   onSubmit() {

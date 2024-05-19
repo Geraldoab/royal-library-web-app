@@ -11,7 +11,6 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet, RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
-import { SelectBookBottomSheetComponent } from '../../book/select-book-bottom-sheet/select-book-bottom-sheet.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { ActionEnum } from '../../../model/enum/actionEnum';
@@ -37,7 +36,7 @@ import { SelectAuthorBottomSheetComponent } from '../select-author-bottom-sheet/
     RouterModule,
     MatSort,
     MatSortModule,
-    SelectBookBottomSheetComponent
+    SelectAuthorBottomSheetComponent
   ],
   templateUrl: './list-author.component.html',
   styleUrl: './list-author.component.css'

@@ -1,0 +1,22 @@
+.container-publisher {
+  width: 640px;
+}
+.container-publisher__card {
+  padding: 24px;
+  width: 100%;
+}
+.container-publisher__card__buttons {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+.container-publisher__card_content {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+.container-publisher__card__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}

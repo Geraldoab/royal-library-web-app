@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 import { CreatePublisherComponent } from './components/publisher/create-publisher/create-publisher.component';
 import { EditBookComponent } from './components/book/edit-book/edit-book.component';
 import { EditAuthorComponent } from './components/author/edit-author/edit-author.component';
+import { EditPublisherComponent } from './components/publisher/edit-publisher/edit-publisher.component';
 
 export const routes: Routes = [
   {
@@ -47,6 +48,10 @@ export const routes: Routes = [
   {
     path: 'publishers',
     component: CreatePublisherComponent
+  },
+  {
+    path: 'publishers/:id',
+    component: EditPublisherComponent
   },
 
   /*{

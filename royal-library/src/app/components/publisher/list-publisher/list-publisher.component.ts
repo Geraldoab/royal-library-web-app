@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BaseComponentComponent } from '../../core/base-component/base.component';
+import { BaseComponent } from '../../core/base-component/base.component';
 
 @Component({
   selector: 'app-list-publisher',
@@ -38,7 +38,7 @@ import { BaseComponentComponent } from '../../core/base-component/base.component
   templateUrl: './list-publisher.component.html',
   styleUrl: './list-publisher.component.css'
 })
-export class ListPublisherComponent extends BaseComponentComponent implements AfterViewInit {
+export class ListPublisherComponent extends BaseComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name']
   dataSource: MatTableDataSource<Publisher>
   publisherList: Publisher[] = []

@@ -5,7 +5,7 @@ import { SharedActionService } from '../../../services/shared-action.service';
 import { SharedFormService } from '../../../services/shared-form.service';
 import { AuthorService } from '../../../services/author/author.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BaseComponentComponent } from '../../core/base-component/base.component';
+import { BaseComponent } from '../../core/base-component/base.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,14 +17,14 @@ import { Router } from '@angular/router';
   templateUrl: './create-author.component.html',
   styleUrl: './create-author.component.css'
 })
-export class CreateAuthorComponent extends BaseComponentComponent {
+export class CreateAuthorComponent extends BaseComponent {
   author: Author = {
     id: 0,
     name: ''
   }
 
   isFormValid: Boolean = false
-  addBookErrorMessage = "Unfortunately, can't add the new author";
+  addAuthorErrorMessage = "Unfortunately, can't add the new author";
 
   constructor(
     protected override router: Router,
@@ -60,7 +60,7 @@ export class CreateAuthorComponent extends BaseComponentComponent {
           this._sharedFormService.emitOnClearForm(true)
         }
         else {
-          this.showSnackBar(this.addBookErrorMessage, 'bottom')
+          this.showSnackBar(this.addAuthorErrorMessage, 'bottom')
         }
       },
       error: (e) => {

@@ -1,7 +1,7 @@
 import { AuthorService } from './../../../services/author/author.service';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { Author } from '../../../model/author';
-import { BaseComponentComponent } from '../../core/base-component/base.component';
+import { BaseComponent } from '../../core/base-component/base.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
@@ -41,7 +41,7 @@ import { SelectAuthorBottomSheetComponent } from '../select-author-bottom-sheet/
   templateUrl: './list-author.component.html',
   styleUrl: './list-author.component.css'
 })
-export class ListAuthorComponent extends BaseComponentComponent implements AfterViewInit {
+export class ListAuthorComponent extends BaseComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name'];
   dataSource: MatTableDataSource<Author>
   authorList: Author[] = []

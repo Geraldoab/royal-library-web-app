@@ -24,7 +24,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SharedFormService } from '../../../services/shared-form.service';
 
 @Component({
-  selector: 'app-base-form-book',
+  selector: 'app-base-book-form',
   standalone: true,
   imports: [
     SelectAuthorComponent,
@@ -55,7 +55,7 @@ import { SharedFormService } from '../../../services/shared-form.service';
   templateUrl: './base-book-form.component.html',
   styleUrl: './base-book-form.component.css'
 })
-export class BaseFormBookComponent {
+export class BaseBookFormComponent {
 
   @Input()
   book: Book = {

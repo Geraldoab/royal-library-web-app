@@ -5,7 +5,7 @@ import { SharedActionService } from '../../../services/shared-action.service';
 import { SharedFormService } from '../../../services/shared-form.service';
 import { AuthorService } from '../../../services/author/author.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BaseComponentComponent } from '../../core/base-component/base.component';
+import { BaseComponent } from '../../core/base-component/base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './edit-author.component.html',
   styleUrl: './edit-author.component.css'
 })
-export class EditAuthorComponent extends BaseComponentComponent  {
+export class EditAuthorComponent extends BaseComponent  {
   author: Author = {
     id: 0,
     name: ''

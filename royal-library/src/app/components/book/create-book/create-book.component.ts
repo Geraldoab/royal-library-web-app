@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { BookService } from '../../../services/book/book.service';
 import { SharedFormService } from '../../../services/shared-form.service';
-import { BaseFormBookComponent } from '../base-book-form/base-book-form.component';
+import { BaseBookFormComponent } from '../base-book-form/base-book-form.component';
 
 @Component({
   selector: 'app-create-book',
@@ -19,7 +19,7 @@ import { BaseFormBookComponent } from '../base-book-form/base-book-form.componen
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BaseFormBookComponent
+    BaseBookFormComponent
   ],
   templateUrl: './create-book.component.html',
   styleUrl: './create-book.component.css'

@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../../../model/book';
 import { SharedFormService } from '../../../services/shared-form.service';
-import { BaseFormBookComponent } from '../base-book-form/base-book-form.component';
+import { BaseBookFormComponent } from '../base-book-form/base-book-form.component';
 import { BookService } from '../../../services/book/book.service';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-book',
   standalone: true,
-  imports: [BaseFormBookComponent],
+  imports: [BaseBookFormComponent],
   templateUrl: './edit-book.component.html',
   styleUrl: './edit-book.component.css'
 })

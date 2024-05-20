@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './base.component.html',
   styleUrl: './base.component.css'
 })
-export class BaseComponentComponent {
+export class BaseComponent {
 
   constructor(
     protected router: Router,

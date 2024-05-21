@@ -1,1 +1,17 @@
-<p>select-publisher-bottom-sheet works!</p>
+
+<h2 class="title">{{ selectedPublisher.name }}</h2>
+
+<mat-nav-list>
+  <div  class="container-bottom-sheet">
+    <div>
+      <span matLine><button mat-button (click)="onSelectAction(1)"><mat-icon fontIcon="add" /> New publisher</button></span>
+    </div>
+    <div>
+      <span matLine><button mat-button (click)="onSelectAction(2)"><mat-icon fontIcon="edit" />Edit</button></span>
+    </div>
+    <div>
+      <span matLine><button mat-button (click)="onSelectAction(3)" [disabled]="isDisabled"><mat-icon fontIcon="delete" />Delete</button></span>
+    </div>
+  </div>
+</mat-nav-list>
+

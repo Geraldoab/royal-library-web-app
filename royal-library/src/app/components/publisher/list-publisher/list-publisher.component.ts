@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseComponent } from '../../core/base-component/base.component';
+import { SelectPublisherBottomSheetComponent } from '../select-publisher-bottom-sheet/select-publisher-bottom-sheet.component';
 
 @Component({
   selector: 'app-list-publisher',
@@ -112,11 +113,41 @@ export class ListPublisherComponent extends BaseComponent implements AfterViewIn
     }, 1250)
   }
 
-  private delete(authorId: number) {
+  private delete(publisherId: number) {
+    if(this.isLoading) {
+      return
+    }
 
+    this.sharedActionService.emitButtonDisableEvent(true);
+
+    this. isLoading = true
+
+    setTimeout(() => {
+      this.publisherSevice.delete(publisherId).subscribe({
+        next: (response) =>
+        {
+          if(response.status == 200) {
+            this.showSnackBar('The publisher was deleted successfully.', 'top')
+            this.search()
+          }
+          else {
+            this.showSnackBar(this.deletePublisherErrorMessage)
+          }
+        },
+        error: (e) => {
+          this.showSnackBar(this.deletePublisherErrorMessage)
+        },
+        complete: () => {
+          this.isLoading = false;
+          this.sharedActionService.emitButtonDisableEvent(false);
+        }
+      });
+    }, 1250)
   }
 
   private openBottomSheet(): void {
-
+    this._bottomSheet.open(SelectPublisherBottomSheetComponent, {
+      data: this.selectedPublisher
+    })
   }
 }

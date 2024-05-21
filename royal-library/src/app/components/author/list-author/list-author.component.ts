@@ -114,6 +114,8 @@ export class ListAuthorComponent extends BaseComponent implements AfterViewInit 
       return
     }
 
+    this.sharedActionService.emitButtonDisableEvent(true);
+
     this.isLoading = true
 
     setTimeout(() => {

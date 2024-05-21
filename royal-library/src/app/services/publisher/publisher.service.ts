@@ -23,16 +23,16 @@ export class PublisherService {
 
   edit(publisher: Publisher) : Observable<any> {
     const url = `${this.PUBLISHERS_URL}/${publisher.id}`
-    return this.http.put<any>(url, publisher)
+    return this.http.put<any>(url, publisher, {observe: 'response'})
   }
 
   delete(id: number) : Observable<any> {
     const url = `${this.PUBLISHERS_URL}/${id}`
-    return this.http.delete<any>(url)
+    return this.http.delete<any>(url, {observe: 'response'})
   }
 
   getById(id: number) : Observable<any> {
     const url = `${this.PUBLISHERS_URL}/${id}`
-    return this.http.get<any>(url)
+    return this.http.get<any>(url, {observe: 'response'})
   }
 }

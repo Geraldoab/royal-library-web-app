@@ -126,6 +126,8 @@ export class BooksListComponent implements AfterViewInit {
       return
     }
 
+    this.sharedActionService.emitButtonDisableEvent(true);
+
     this.isLoading = true
 
     setTimeout(() => {

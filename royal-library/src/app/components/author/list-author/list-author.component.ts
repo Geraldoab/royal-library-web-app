@@ -110,7 +110,7 @@ export class ListAuthorComponent extends BaseComponent implements AfterViewInit 
   }
 
   delete(authorId: number) {
-    if(this.isLoading) {
+    if(this.isLoading || authorId <=0) {
       return
     }
 
@@ -132,6 +132,7 @@ export class ListAuthorComponent extends BaseComponent implements AfterViewInit 
         },
         error: (e) => {
           this.showSnackBar(this.deleteAuthorErrorMessage)
+          this.isLoading = false;
         },
         complete: () => {
           this.isLoading = false;

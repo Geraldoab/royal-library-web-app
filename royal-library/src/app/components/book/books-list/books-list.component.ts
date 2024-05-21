@@ -146,6 +146,7 @@ export class BooksListComponent implements AfterViewInit {
         },
         error: (e) => {
           this.showSnackBar(this.deleteBookErrorMessage)
+          this.isLoading = false;
         },
         complete: () => {
           this.isLoading = false;

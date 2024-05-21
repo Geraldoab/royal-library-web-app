@@ -114,7 +114,7 @@ export class ListPublisherComponent extends BaseComponent implements AfterViewIn
   }
 
   private delete(publisherId: number) {
-    if(this.isLoading) {
+    if(this.isLoading || publisherId <= 0) {
       return
     }
 
@@ -136,6 +136,7 @@ export class ListPublisherComponent extends BaseComponent implements AfterViewIn
         },
         error: (e) => {
           this.showSnackBar(this.deletePublisherErrorMessage)
+          this.isLoading = false;
         },
         complete: () => {
           this.isLoading = false;

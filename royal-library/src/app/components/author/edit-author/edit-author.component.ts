@@ -22,7 +22,7 @@ export class EditAuthorComponent extends BaseComponent  {
   }
 
   isFormValid: Boolean = false
-  editBookErrorMessage = "Unfortunately, can't edit the author";
+  editAuthorErrorMessage = "Unfortunately, can't edit the author";
 
   constructor(
     private route: ActivatedRoute,
@@ -77,7 +77,7 @@ export class EditAuthorComponent extends BaseComponent  {
           this.showSnackBar('The author was modified successfully.', 'top')
         }
         else {
-          this.showSnackBar(this.editBookErrorMessage, 'bottom')
+          this.showSnackBar(this.editAuthorErrorMessage, 'bottom')
         }
       },
       error: (e) => {

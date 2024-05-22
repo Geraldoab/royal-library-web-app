@@ -7,4 +7,5 @@ export interface BookDataTransferObject {
   isbn: string;
   category: string;
   availableCopies: string
+  totalItemCount: number
 }

@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { BookService } from '../../../services/book/book.service';
@@ -49,9 +49,17 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
 })
 export class BooksListComponent implements AfterViewInit {
 
+  private deleteBookErrorMessage = "Unfortunately, can't delete the book."
   displayedColumns: string[] = ['id', 'bookTitle', 'publisher', 'authors', 'type', 'isbn', 'category', 'availableCopies'];
   dataSource: MatTableDataSource<BookDataTransferObject>
   booksList: BookDataTransferObject[] = []
+  searchBy = SearchByEnum
+  isLoading: Boolean = false
+  selectedBook: BookDataTransferObject
+  filter: BookFilter = {
+    searchBy: this.searchBy.All,
+    searchValue: ''
+  }
 
   constructor(private bookService: BookService,
     private _liveAnnouncer: LiveAnnouncer,
@@ -98,28 +106,30 @@ export class BooksListComponent implements AfterViewInit {
     this.search()
   }
 
-  searchBy = SearchByEnum
-  isLoading: Boolean = false
-
-  filter: BookFilter = {
-    searchBy: this.searchBy.All,
-    searchValue: ''
-  }
-
-  search() {
+  search(pageNumber: number = 1, pageSize: number = 10) {
     this.isLoading = true
 
     setTimeout(() => {
-      this.bookService.getAll(this.filter).subscribe((books) => {
+      this.bookService.getAll(this.filter, pageNumber, pageSize).subscribe((books) => {
         this.dataSource = new MatTableDataSource<BookDataTransferObject>(books)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.isLoading = false
+
+        setTimeout(() => {
+          this.paginator.length = books.length > 0 ? books[0].totalItemCount : 0
+          this.paginator.pageIndex = pageNumber - 1
+        }, 750)
       })
     }, 1250)
   }
 
-  private deleteBookErrorMessage = "Unfortunately, can't delete the book."
+  onChangePage(event: PageEvent) {
+    const pageSize = event.pageSize
+    const pageNumber = event.pageIndex + 1
+
+    this.search(pageNumber, pageSize)
+  }
 
   delete(bookId: number) {
     if(this.isLoading) {
@@ -155,8 +165,6 @@ export class BooksListComponent implements AfterViewInit {
       });
     }, 1250)
   }
-
-  selectedBook: BookDataTransferObject
 
   onSelectRow(row: BookDataTransferObject) {
     this.selectedBook = row

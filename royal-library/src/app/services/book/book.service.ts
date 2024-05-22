@@ -15,8 +15,8 @@ export class BookService {
 
   private readonly BOOKS_URL = environment.BOOKS_API_URL;
 
-  getAll(filter: BookFilter) : Observable<BookDataTransferObject[]> {
-    return this.http.get<BookDataTransferObject[]>(`${this.BOOKS_URL}?searchBy=${filter.searchBy}&searchValue=${filter.searchValue}`)
+  getAll(filter: BookFilter, pageNumber: number, pageSize: number) : Observable<BookDataTransferObject[]> {
+    return this.http.get<BookDataTransferObject[]>(`${this.BOOKS_URL}?searchBy=${filter.searchBy}&searchValue=${filter.searchValue}&pageNumber=${pageNumber}&pageSize=${pageSize}`)
   }
 
   create(book: Book) : Observable<HttpResponse<any>> {

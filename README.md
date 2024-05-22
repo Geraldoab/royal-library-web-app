@@ -1,10 +1,12 @@
 # Royal Library Angular App
 
-You can also try the **.NET Web API** -> https://github.com/Geraldoab/net-coderbyte-torc-assessment
+- An Angular App to manage Books, Authors, and Publishers.
+- You can also try the **.NET Web API** -> https://github.com/Geraldoab/net-coderbyte-torc-assessment
 
 ## Technologies/Tools
 
 - :white_check_mark: Angular 17+
+- :white_check_mark: Angular Material Design
 - :white_check_mark: Typescript
 - :white_check_mark: HTML
 - :white_check_mark: CSS
